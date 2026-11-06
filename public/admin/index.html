@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin — Akyoto Secure</title><meta name="robots" content="noindex">
+<link rel="icon" href="/img/favicon.svg"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/admin/admin.css"></head><body>
+<div id="login" class="login" hidden><form class="lcard" id="lform"><img src="/img/logo-navy.png" alt="AKYOTO" style="height:40px;margin:0 auto 6px"><h1>Admin panel</h1><p class="muted">Sign in to manage products, orders and coupons.</p>
+<label>Email<input name="email" type="email" autocomplete="username" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+<button class="btn primary" style="width:100%">Sign in</button><p class="err" id="lerr"></p><a href="/" class="muted small">← Back to store</a></form></div>
+<div id="app" class="app" hidden><aside class="side" id="side"><a href="#/dashboard" class="brand"><img src="/img/logo-white.png" alt="AKYOTO"><span>Admin</span></a>
+<nav><a href="#/dashboard" data-r="dashboard">📊 Dashboard</a><a href="#/orders" data-r="orders">🧾 Orders <b id="nOrders"></b></a><a href="#/products" data-r="products">📦 Products</a><a href="#/coupons" data-r="coupons">🏷️ Coupons</a><a href="#/reviews" data-r="reviews">⭐ Reviews <b id="nReviews"></b></a><a href="#/enquiries" data-r="enquiries">✉️ Enquiries <b id="nEnq"></b></a><a href="#/settings" data-r="settings">⚙️ Settings</a></nav>
+<div class="side-foot"><a href="/" target="_blank">View store ↗</a><button id="logout">Log out</button></div></aside>
+<div class="main"><header class="top"><button class="burger" id="burger">☰</button><h2 id="title">Dashboard</h2><span class="pill" id="paypill"></span><span class="who" id="who"></span></header><section id="view" class="view"></section></div></div>
+<div class="modal" id="modal"><div class="mbox"><div class="mhead"><h3 id="mtitle"></h3><button data-close>✕</button></div><div id="mbody" class="mbody"></div></div></div>
+<div class="toasts" id="toasts"></div><script src="/admin/admin.js" defer></script></body></html>

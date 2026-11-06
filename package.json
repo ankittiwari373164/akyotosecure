@@ -1,0 +1,21 @@
+{
+  "name": "akyoto-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AKYOTO Secure \u2014 full-stack e-commerce store (storefront + admin panel + Razorpay). Pure JavaScript, no native modules.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "reset-admin": "node src/reset-admin.mjs"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "dotenv": "^16.4.7",
+    "hono": "^4.6.14",
+    "mysql2": "^3.11.5",
+    "sql.js": "^1.12.0"
+  }
+}

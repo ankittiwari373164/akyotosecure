@@ -1,0 +1,36 @@
+{
+ "coupons": [
+  {
+   "code": "WELCOME10",
+   "type": "percent",
+   "value": 10,
+   "min_order": 1999,
+   "max_discount": 1000,
+   "usage_limit": 0,
+   "description": "SAMPLE: 10% off your first order (max ₹1,000) on orders above ₹1,999"
+  },
+  {
+   "code": "SECURE500",
+   "type": "flat",
+   "value": 500,
+   "min_order": 9999,
+   "max_discount": 0,
+   "usage_limit": 200,
+   "description": "SAMPLE: Flat ₹500 off on alarm systems & kits above ₹9,999"
+  },
+  {
+   "code": "FESTIVE15",
+   "type": "percent",
+   "value": 15,
+   "min_order": 14999,
+   "max_discount": 2500,
+   "usage_limit": 100,
+   "expires_at": "2026-12-31",
+   "description": "SAMPLE: 15% off (max ₹2,500) above ₹14,999 — valid till 31 Dec 2026"
+  }
+ ],
+ "admin": {
+  "email": "admin@akyotosecure.com",
+  "password": "Akyoto@Admin2026"
+ }
+}

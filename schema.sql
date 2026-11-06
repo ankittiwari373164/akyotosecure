@@ -1,0 +1,19 @@
+-- AKYOTO Store — MySQL schema (the app also creates these tables automatically on first start)
+
+CREATE TABLE IF NOT EXISTS products (id INT AUTO_INCREMENT PRIMARY KEY, slug VARCHAR(191) NOT NULL UNIQUE, name VARCHAR(255) NOT NULL, sku VARCHAR(100) DEFAULT '', category VARCHAR(120) DEFAULT '', brand VARCHAR(80) DEFAULT 'Akyoto', price INT DEFAULT 0, mrp INT DEFAULT 0, stock INT DEFAULT 0, active TINYINT DEFAULT 1, featured TINYINT DEFAULT 0, short_desc TEXT, description MEDIUMTEXT, specs TEXT, images TEXT, variant_group VARCHAR(80), variant_label VARCHAR(80), created_at VARCHAR(30), updated_at VARCHAR(30)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS reviews (id INT AUTO_INCREMENT PRIMARY KEY, product_id INT NOT NULL, name VARCHAR(80), rating INT, body TEXT, approved TINYINT DEFAULT 0, created_at VARCHAR(30), INDEX (product_id)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS coupons (id INT AUTO_INCREMENT PRIMARY KEY, code VARCHAR(40) NOT NULL UNIQUE, type VARCHAR(10) DEFAULT 'percent', value INT DEFAULT 0, min_order INT DEFAULT 0, max_discount INT DEFAULT 0, starts_at VARCHAR(30), expires_at VARCHAR(30), usage_limit INT DEFAULT 0, used_count INT DEFAULT 0, active TINYINT DEFAULT 1, description VARCHAR(255), created_at VARCHAR(30)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS orders (id INT AUTO_INCREMENT PRIMARY KEY, order_no VARCHAR(40) NOT NULL UNIQUE, customer_name VARCHAR(120), phone VARCHAR(20), email VARCHAR(160), address VARCHAR(400), city VARCHAR(80), state VARCHAR(80), pincode VARCHAR(10), subtotal INT, discount INT DEFAULT 0, shipping INT DEFAULT 0, total INT, coupon_code VARCHAR(40), payment_method VARCHAR(20), payment_mode VARCHAR(10), payment_status VARCHAR(20) DEFAULT 'pending', status VARCHAR(20) DEFAULT 'pending', rzp_order_id VARCHAR(60), rzp_payment_id VARCHAR(60), rzp_signature VARCHAR(160), tracking_no VARCHAR(100), notes TEXT, committed TINYINT DEFAULT 0, created_at VARCHAR(30), updated_at VARCHAR(30), paid_at VARCHAR(30), INDEX (rzp_order_id), INDEX (phone)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS order_items (id INT AUTO_INCREMENT PRIMARY KEY, order_id INT NOT NULL, product_id INT, name VARCHAR(255), price INT, qty INT, image VARCHAR(300), INDEX (order_id)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS order_events (id INT AUTO_INCREMENT PRIMARY KEY, order_id INT NOT NULL, status VARCHAR(20), note TEXT, created_at VARCHAR(30), INDEX (order_id)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS admins (id INT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(160) NOT NULL UNIQUE, pass_hash VARCHAR(128) NOT NULL, salt VARCHAR(64) NOT NULL, created_at VARCHAR(30)) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS settings (setting_key VARCHAR(80) PRIMARY KEY, setting_value TEXT) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS enquiries (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(120), email VARCHAR(160), phone VARCHAR(30), company VARCHAR(160), message TEXT, handled TINYINT DEFAULT 0, created_at VARCHAR(30)) DEFAULT CHARSET=utf8mb4;
